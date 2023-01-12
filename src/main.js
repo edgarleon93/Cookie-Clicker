@@ -2,17 +2,17 @@ import "./index.css";
 
 // Multiplier button start
 
-let score = document.getElementById("scoreShow");
+let scoreNow = document.getElementById("scoreShow");
 let multiplier = document.getElementById("bonusMultiplier");
 let multiplierCount = 0;
 let multiplierCost = 100;
 
 document.getElementById("cookie").addEventListener("click", function() {
-  score.innerHTML = "Score: " + (parseInt(score.innerHTML.split(':')[1]) + (1 * (multiplierCount + 1)));
+  scoreNow.innerHTML = "Score: " + (parseInt(scoreNow.innerHTML.split(':')[1]) + (1 * (multiplierCount + 1)));
 });
 
 multiplier.addEventListener("click", function() {
-  if (parseInt(score.innerHTML.split(':')[1]) >= multiplierCost) {
+  if (parseInt(scoreNow.innerHTML.split(':')[1]) >= multiplierCost) {
     score.innerHTML = "Score: " + (parseInt(score.innerHTML.split(':')[1]) - multiplierCost);
     multiplierCount++;
     multiplierCost = multiplierCost * 2;
@@ -63,8 +63,6 @@ const countScoreVariable = function countScore() {
     let scoreVariable = document.getElementById("scoreShow");
     
     scoreShow.innerHTML = score;  
-
-    console.log(score)
 
 };
 
