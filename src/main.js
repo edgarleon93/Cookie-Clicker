@@ -1,6 +1,7 @@
 import "./index.css";
 
 
+
 const cookieButton = document.getElementById("cookie");
 const bonusAutoclick = document.getElementById("bonusAutoClick");
 
@@ -25,5 +26,4 @@ const interval = function autoclickInterval() {
     setInterval(countScoreVariable,1000)};
 
 bonusAutoclick.addEventListener("click", interval);
-
 
