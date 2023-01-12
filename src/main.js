@@ -2,18 +2,18 @@ import "./index.css";
 
 // Multiplier button start
 
-let score = document.getElementById("scoreShow");
+let scoreNow = document.getElementById("scoreShow");
 let multiplier = document.getElementById("bonusMultiplier");
 let multiplierCount = 0;
 let multiplierCost = 100;
 
 document.getElementById("cookie").addEventListener("click", function() {
-  score.innerHTML = "Score: " + (parseInt(score.innerHTML.split(':')[1]) + (1 * (multiplierCount + 1)));
+  scoreNow.innerHTML = "Score: " + (parseInt(scoreNow.innerHTML.split(':')[1]) + (1 * (multiplierCount + 1)));
 });
 
 multiplier.addEventListener("click", function() {
-  if (parseInt(score.innerHTML.split(':')[1]) >= multiplierCost) {
-    score.innerHTML = "Score: " + (parseInt(score.innerHTML.split(':')[1]) - multiplierCost);
+  if (parseInt(scoreNow.innerHTML.split(':')[1]) >= multiplierCost) {
+    scoreNow.innerHTML = "Score: " + (parseInt(scoreNow.innerHTML.split(':')[1]) - multiplierCost);
     multiplierCount++;
     multiplierCost = multiplierCost * 2;
     multiplier.innerHTML = "Multiplier x" + (multiplierCount + 1) + " (Cost: " + multiplierCost + ")";
@@ -32,11 +32,11 @@ let bonusInterval;
 let boost = document.getElementById("bonusBoost");
 
 boost.addEventListener("click", function() {
-    if (score >= bonusCost) {
-      score -= bonusCost;
+    if (scoreNow >= bonusCost) {
+      scoreNow -= bonusCost;
       bonusCost = bonusCost * 2;
-      document.getElementById("bonus").innerHTML = "Bonus (Cost: " + bonusCost + ")";
-      document.getElementById("score").innerHTML = "Score: " + score;
+      boost.innerHTML = "Bonus (Cost: " + bonusCost + ")";
+      scoreNow.innerHTML = "Score: " + scoreNow;
       bonusTimer = 30;
       clearInterval(bonusInterval);
       bonusInterval = setInterval(function() {
@@ -47,7 +47,7 @@ boost.addEventListener("click", function() {
         }
       }, 1000);
     }
-
+// Boost button end
 });
 
 const cookieButton = document.getElementById("cookie");
