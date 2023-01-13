@@ -10,33 +10,33 @@ document.getElementById("cookie").addEventListener("click", function() {
 setInterval(function() {
   if (parseInt(scoreNow.innerHTML.split(':')[1]) < multiplierCost){
   multiplier.disabled = true;
-  multiplier.style.borderColor = "red";
+  multiplier.style.borderColor = "black";
   }
   else {
   multiplier.disabled = false;
-  multiplier.style.borderColor = "green";
+  multiplier.style.borderColor = "white";
   }  
 }, 1);
 
 setInterval(function() {
   if (parseInt(scoreNow.innerHTML.split(':')[1]) < autoClickerCost){
     autoClicker.disabled = true;
-    autoClicker.style.borderColor = "red";
+    autoClicker.style.borderColor = "black";
   }
   else {
     autoClicker.disabled = false;
-    autoClicker.style.borderColor = "green";
+    autoClicker.style.borderColor = "white";
   }  
 }, 1);
 
 setInterval(function() {
   if (parseInt(scoreNow.innerHTML.split(':')[1]) < bonusCost){
     bonus.disabled = true;
-    bonus.style.borderColor = "red";
+    bonus.style.borderColor = "black";
   }
   else {
     bonus.disabled = false;
-    bonus.style.borderColor = "green";
+    bonus.style.borderColor = "white";
   }  
 }, 1);
 
@@ -57,7 +57,7 @@ multiplier.addEventListener("click", function() {
     multiplier.innerHTML = "Multiplier x" + (multiplierCount + 1) + " (Cost: " + multiplierCost + ")";
     console.log("Multiplier x" + (multiplierCount + 1) + " purchased. Score: " + scoreNow.innerHTML.split(':')[1]);
   } else {
-    alert("You don't have enough points");
+    // do nothing
   }
 });
 
@@ -83,7 +83,7 @@ autoClicker.addEventListener("click", function() {
     clearInterval(autoClickerInterval);
     autoClickerInterval = setInterval(addAutoClick, 1000);
   } else {
-    alert("You don't have enough points");
+    // do nothing
   }
 });
 
@@ -109,7 +109,7 @@ bonus.addEventListener("click", function() {
     bonus.innerHTML = "Bonus x" + (bonusCount + 1) + " (Cost: " + bonusCost + ")";
     activateBonus();
   } else {
-    alert("You don't have enough points");
+    // do nothing
   }
 });
 
@@ -129,7 +129,7 @@ function activateBonus() {
           }
       }, 1000);
     } else {
-      alert("Bonus is already active");
+      //do nothing
     }
   }
   
@@ -139,3 +139,43 @@ function activateBonus() {
   
 
 // Boost button end;
+
+// store the terminal commande inside an array and make them not displayed in the html 
+
+const randomCommandTextElements = Array.from(document.querySelectorAll(".randomCommandText"));
+randomCommandTextElements.forEach(function(element) {
+  element.remove();
+});
+ 
+// end
+
+// function that pick a random terminal command and diplay it on the terminal 
+
+const button = document.getElementById("cookie");
+const container = document.getElementById("screen");
+
+
+function showRandomElement() {
+  // Remove all elements
+  console.log(randomCommandTextElements)
+  randomCommandTextElements.forEach(function(element) {
+    element.remove();
+  });
+  
+  // Select a random element
+  const randomIndex = Math.floor(Math.random() * randomCommandTextElements.length);
+  const randomElement = randomCommandTextElements[randomIndex];
+
+  // Create new element 
+  const newDiv = document.createElement("div");
+  newDiv.innerHTML = randomElement.innerHTML;
+  newDiv.classList.add("randomCommandText");
+  // Add the new element to the DOM
+  document.body.appendChild(newDiv);
+  container.appendChild(newDiv);
+
+}
+
+// Add an event listener to the button to call the showRandomElement function when clicked
+button.addEventListener("click", showRandomElement);
+
