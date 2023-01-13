@@ -1,5 +1,25 @@
 import "./index.css";
 
+// Clicker button & score start 
+
+let cookieButton = document.getElementById("cookie");
+
+let score = 0;
+
+const countScoreVariable = function countScore() {
+
+    score += 1;
+
+    let scoreVariable = document.getElementById("scoreShow");
+    
+    scoreShow.innerHTML = score;  
+
+    console.log(score)
+
+};
+
+// Clicker button & score end
+
 // Multiplier button start
 
 let scoreNow = document.getElementById("scoreShow");
@@ -13,7 +33,7 @@ document.getElementById("cookie").addEventListener("click", function() {
 
 multiplier.addEventListener("click", function() {
   if (parseInt(scoreNow.innerHTML.split(':')[1]) >= multiplierCost) {
-    score.innerHTML = "Score: " + (parseInt(score.innerHTML.split(':')[1]) - multiplierCost);
+    scoreNow.innerHTML = "Score: " + (parseInt(scoreNow.innerHTML.split(':')[1]) - multiplierCost);
     multiplierCount++;
     multiplierCost = multiplierCost * 2;
     multiplier.innerHTML = "Multiplier x" + (multiplierCount + 1) + " (Cost: " + multiplierCost + ")";
@@ -23,7 +43,22 @@ multiplier.addEventListener("click", function() {
 });
 
 
+
+
 // Multiplier button end
+
+// Autoclick button start 
+
+const bonusAutoclick = document.getElementById("bonusAutoClick");
+
+cookieButton.addEventListener("click", countScoreVariable);
+
+const interval = function autoclickInterval() { 
+    setInterval(countScoreVariable,1000)};
+
+bonusAutoclick.addEventListener("click", interval);
+
+// Autoclick button end 
 
 // Bonus boost button start 
 let bonusCost = 250;
@@ -49,27 +84,4 @@ boost.addEventListener("click", function() {
     }
 
 });
-
-const cookieButton = document.getElementById("cookie");
-const bonusAutoclick = document.getElementById("bonusAutoClick");
-
-
-let score = 0;
-
-const countScoreVariable = function countScore() {
-
-    score += 1;
-
-    let scoreVariable = document.getElementById("scoreShow");
-    
-    scoreShow.innerHTML = score;  
-
-};
-
-cookieButton.addEventListener("click", countScoreVariable);
-
-const interval = function autoclickInterval() { 
-    setInterval(countScoreVariable,1000)};
-
-bonusAutoclick.addEventListener("click", interval);
 
