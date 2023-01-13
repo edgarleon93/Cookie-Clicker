@@ -115,31 +115,28 @@ bonus.addEventListener("click", function() {
 
 // Add bonus function
 function activateBonus() {
-  if (!bonusActive) {
-    bonusActive = true;
-    document.getElementById("cookie").removeEventListener("click", addPoints);
-    document.getElementById("cookie").addEventListener("click", addPointsWithBonus);
-    bonusTimer = 30;
-    bonus.innerHTML = "Bonus (Time remaining: " + bonusTimer + ")";
-    var countdown = setInterval(function() {
-      bonusTimer--;
+    if (!bonusActive) {
+      bonusActive = true;
+      bonusTimer = 30;
       bonus.innerHTML = "Bonus (Time remaining: " + bonusTimer + ")";
-      if (bonusTimer <= 0) {
-        clearInterval(countdown);
-        document.getElementById("cookie").removeEventListener("click", addPointsWithBonus);
-        document.getElementById("cookie").addEventListener("click", addPoints);
-        bonus.innerHTML = "Bonus (Cost: " + bonusCost + ")";
-        bonusActive = false;
-        }
-        }, 1000);
-        } else {
-          // do nothing
-        }
-        }
-        
-        function addPointsWithBonus() {
-        scoreNow.innerHTML = "Score: " + (parseInt(scoreNow.innerHTML.split(':')[1]) + (1 * (multiplierCount + 1)) * 2);
-        };
+      var countdown = setInterval(function() {
+        bonusTimer--;
+        bonus.innerHTML = "Bonus (Time remaining: " + bonusTimer + ")";
+        if (bonusTimer == 0) {
+          clearInterval(countdown);
+          bonus.innerHTML = "Bonus (Cost: " + bonusCost + ")";
+          bonusActive = false;
+          }
+      }, 1000);
+    } else {
+      //do nothing
+    }
+  }
+  
+  function addPointsWithBonus() {
+    scoreNow.innerHTML = "Score: " + (parseInt(scoreNow.innerHTML.split(':')[1]) + (1 * (multiplierCount + 1)) * 2);
+  };
+  
 
 // Boost button end;
 
