@@ -1,24 +1,44 @@
 import "./index.css";
 
-// Clicker button & score start 
+// Cookie clicker button 
+document.getElementById("cookie").addEventListener("click", function() {
+  scoreNow.innerHTML = "Score: " + (parseInt(scoreNow.innerHTML.split(':')[1]) + (1 * (multiplierCount + 1)));
+  //update line of codes to show in terminal per click
+  console.log("Cookie clicked. Score: " + scoreNow.innerHTML.split(':')[1]);
+});
 
-// let cookieButton = document.getElementById("cookie");
+setInterval(function() {
+  if (parseInt(scoreNow.innerHTML.split(':')[1]) < multiplierCost){
+  multiplier.disabled = true;
+  multiplier.style.borderColor = "red";
+  }
+  else {
+  multiplier.disabled = false;
+  multiplier.style.borderColor = "green";
+  }  
+}, 1);
 
-// let score = 0;
+setInterval(function() {
+  if (parseInt(scoreNow.innerHTML.split(':')[1]) < autoClickerCost){
+    autoClicker.disabled = true;
+    autoClicker.style.borderColor = "red";
+  }
+  else {
+    autoClicker.disabled = false;
+    autoClicker.style.borderColor = "green";
+  }  
+}, 1);
 
-// const countScoreVariable = function countScore() {
-
-//     score += 1;
-
-//     let scoreVariable = document.getElementById("scoreShow");
-    
-//     scoreShow.innerHTML = score;  
-
-//     console.log(score)
-
-// };
-
-// Clicker button & score end
+setInterval(function() {
+  if (parseInt(scoreNow.innerHTML.split(':')[1]) < bonusCost){
+    bonus.disabled = true;
+    bonus.style.borderColor = "red";
+  }
+  else {
+    bonus.disabled = false;
+    bonus.style.borderColor = "green";
+  }  
+}, 1);
 
 // Multiplier button start
 
@@ -26,15 +46,7 @@ let scoreNow = document.getElementById("scoreShow");
 scoreNow.innerHTML = "Score: 0";
 let multiplier = document.getElementById("bonusMultiplier");
 let multiplierCount = 0;
-let multiplierCost = 100;
-
-// Cookie clicker button 
-document.getElementById("cookie").addEventListener("click", function() {
-  scoreNow.innerHTML = "Score: " + (parseInt(scoreNow.innerHTML.split(':')[1]) + (1 * (multiplierCount + 1)));
-  
-  //update line of codes to show in terminal per click
-  console.log("Cookie clicked. Score: " + scoreNow.innerHTML.split(':')[1]);
-});
+let multiplierCost = 10;
 
 // Increase the multiplier and update the multiplier button text when the bonusMultiplier button is clicked
 multiplier.addEventListener("click", function() {
@@ -50,24 +62,14 @@ multiplier.addEventListener("click", function() {
 });
 
 
-
-
 // Multiplier button end
 
 // Autoclick button start 
 
-// const bonusAutoclick = document.getElementById("bonusAutoClick");
-
-// cookieButton.addEventListener("click", countScoreVariable);
-
-// const interval = function autoclickInterval() { 
-//     setInterval(countScoreVariable,1000)};
-
-// bonusAutoclick.addEventListener("click", interval);
 
 let autoClicker = document.getElementById("bonusAutoClick");
 let autoClickerCount = 0;
-let autoClickerCost = 500;
+let autoClickerCost = 11;
 let autoClickerInterval = null;
 
 // Set up auto-clicker button
@@ -89,13 +91,12 @@ function addAutoClick() {
   scoreNow.innerHTML = "Score: " + (parseInt(scoreNow.innerHTML.split(':')[1]) + (1 * (multiplierCount + 1)));
 }
 
-
 // Autoclick button end 
 
 // Bonus boost button start 
 let bonus = document.getElementById("bonusBoost");
 let bonusCount = 0;
-let bonusCost = 1000;
+let bonusCost = 12;
 let bonusTimer = null;
 let bonusActive = false;
 
@@ -141,16 +142,3 @@ function activateBonus() {
         };
 
 // Boost button end;
-
-// Active/Disabled buttons start
-if (value === false) {
-  button.classList.add("disabled");
-} else {
-  button.classList.remove("disabled");
-}
-
-if (value === true) {
-  button.classList.add("active");
-} else {
-  button.classList.remove("active");
-};

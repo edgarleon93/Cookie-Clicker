@@ -29,7 +29,7 @@ body {
     background-color: #888;
     box-shadow: none;
   }
-  .active {
+.active {
     background-color: #fff;
     box-shadow: 0 0 10px #fff;
   }
