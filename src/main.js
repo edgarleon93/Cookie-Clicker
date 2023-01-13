@@ -142,3 +142,43 @@ function activateBonus() {
         };
 
 // Boost button end;
+
+// store the terminal commande inside an array and make them not displayed in the html 
+
+const randomCommandTextElements = Array.from(document.querySelectorAll(".randomCommandText"));
+randomCommandTextElements.forEach(function(element) {
+  element.remove();
+});
+ 
+// end
+
+// function that pick a random terminal command and diplay it on the terminal 
+
+const button = document.getElementById("cookie");
+const container = document.getElementById("screen");
+
+
+function showRandomElement() {
+  // Remove all elements
+  console.log(randomCommandTextElements)
+  randomCommandTextElements.forEach(function(element) {
+    element.remove();
+  });
+  
+  // Select a random element
+  const randomIndex = Math.floor(Math.random() * randomCommandTextElements.length);
+  const randomElement = randomCommandTextElements[randomIndex];
+
+  // Create new element 
+  const newDiv = document.createElement("div");
+  newDiv.innerHTML = randomElement.innerHTML;
+  newDiv.classList.add("randomCommandText");
+  // Add the new element to the DOM
+  document.body.appendChild(newDiv);
+  container.appendChild(newDiv);
+
+}
+
+// Add an event listener to the button to call the showRandomElement function when clicked
+button.addEventListener("click", showRandomElement);
+
