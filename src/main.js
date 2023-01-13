@@ -10,33 +10,33 @@ document.getElementById("cookie").addEventListener("click", function() {
 setInterval(function() {
   if (parseInt(scoreNow.innerHTML.split(':')[1]) < multiplierCost){
   multiplier.disabled = true;
-  multiplier.style.borderColor = "red";
+  multiplier.style.borderColor = "black";
   }
   else {
   multiplier.disabled = false;
-  multiplier.style.borderColor = "green";
+  multiplier.style.borderColor = "white";
   }  
 }, 1);
 
 setInterval(function() {
   if (parseInt(scoreNow.innerHTML.split(':')[1]) < autoClickerCost){
     autoClicker.disabled = true;
-    autoClicker.style.borderColor = "red";
+    autoClicker.style.borderColor = "black";
   }
   else {
     autoClicker.disabled = false;
-    autoClicker.style.borderColor = "green";
+    autoClicker.style.borderColor = "white";
   }  
 }, 1);
 
 setInterval(function() {
   if (parseInt(scoreNow.innerHTML.split(':')[1]) < bonusCost){
     bonus.disabled = true;
-    bonus.style.borderColor = "red";
+    bonus.style.borderColor = "black";
   }
   else {
     bonus.disabled = false;
-    bonus.style.borderColor = "green";
+    bonus.style.borderColor = "white";
   }  
 }, 1);
 
@@ -57,7 +57,7 @@ multiplier.addEventListener("click", function() {
     multiplier.innerHTML = "Multiplier x" + (multiplierCount + 1) + " (Cost: " + multiplierCost + ")";
     console.log("Multiplier x" + (multiplierCount + 1) + " purchased. Score: " + scoreNow.innerHTML.split(':')[1]);
   } else {
-    alert("You don't have enough points");
+    // do nothing
   }
 });
 
@@ -83,7 +83,7 @@ autoClicker.addEventListener("click", function() {
     clearInterval(autoClickerInterval);
     autoClickerInterval = setInterval(addAutoClick, 1000);
   } else {
-    alert("You don't have enough points");
+    // do nothing
   }
 });
 
@@ -109,7 +109,7 @@ bonus.addEventListener("click", function() {
     bonus.innerHTML = "Bonus x" + (bonusCount + 1) + " (Cost: " + bonusCost + ")";
     activateBonus();
   } else {
-    alert("You don't have enough points");
+    // do nothing
   }
 });
 
@@ -133,7 +133,7 @@ function activateBonus() {
         }
         }, 1000);
         } else {
-        alert("Bonus is already active");
+          // do nothing
         }
         }
         
