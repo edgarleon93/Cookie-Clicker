@@ -154,7 +154,3 @@ if (value === true) {
 } else {
   button.classList.remove("active");
 };
-
-
-
-

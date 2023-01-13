@@ -82,8 +82,8 @@ body {
 .fakeMenu {
     width: 75vw;
     box-sizing: border-box;
-    height: 25px;
-    background-color: #bbb;
+    height: 35px;
+    background-color: rgb(200, 200, 200);
 
 }
 
