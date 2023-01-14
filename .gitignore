@@ -7,3 +7,5 @@
 # production build
 /dist/
 
+# Mac
+.DS_Store

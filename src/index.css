@@ -99,7 +99,7 @@ body {
     width: 75vw;
     padding: 20px;
     height: 85vh;
-    overflow: hidden;
+    overflow: auto;
     justify-content: start;
 }
 
@@ -112,7 +112,6 @@ p {
     font-family: monospace;
     white-space: nowrap;
     overflow: hidden;
-    width: 0;
 }
 
 span {
@@ -120,41 +119,32 @@ span {
     font-weight: bold;
 }
 
-.line1 {
+.randomCommandText {
+    -webkit-animation: type .1s 0s steps(10, end) forwards;
+    -moz-animation: type .1s 0s steps(10, end) forwards;
+    -o-animation: type .1s 0s steps(10, end) forwards;
+    animation: type .1s 0s steps(10, end) forwards;
+}
+
+.command-blue {
     color: #9CD9F0;
-    -webkit-animation: type .1s 0s steps(10, end) forwards;
-    -moz-animation: type .1s 0s steps(10, end) forwards;
-    -o-animation: type .1s 0s steps(10, end) forwards;
-    animation: type .1s 0s steps(10, end) forwards;
 }
 
 
-.line2 {
+.command-green {
     color: #CDEE69;
-    -webkit-animation: type .1s 0s steps(10, end) forwards;
-    -moz-animation: type .1s 0s steps(10, end) forwards;
-    -o-animation: type .1s 0s steps(10, end) forwards;
-    animation: type .1s 0s steps(10, end) forwards;
 }
 
 
-.line3 {
+.command-red {
     color: #E09690;
-    -webkit-animation: type .1s 0s steps(10, end) forwards;
-    -moz-animation: type .1s 0s steps(10, end) forwards;
-    -o-animation: type .1s 0s steps(10, end) forwards;
-    animation: type .1s 0s steps(10, end) forwards;
 }
 
-.line4 {
+.command-white {
     color: #fff;
-    -webkit-animation: type .1s 0s steps(10, end) forwards;
-    -moz-animation: type .1s 0s steps(10, end) forwards;
-    -o-animation: type .1s 0s steps(10, end) forwards;
-    animation: type .1s 0s steps(10, end) forwards;
 }
 
-.cursor4 {
+.cursor {
     -webkit-animation: blink 1s 0s infinite;
     -moz-animation: blink 1s 0s infinite;
     -o-animation: blink 1s 0s infinite;
