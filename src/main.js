@@ -7,6 +7,7 @@ console.log(commands);
 document.getElementById("cookie").addEventListener("click", function() {
   scoreNow.innerHTML = "Score: " + (parseInt(scoreNow.innerHTML.split(':')[1]) + ((bonusActive ? 2 : 1) * (multiplierCount + 1)));
   //update line of codes to show in terminal per click
+  totalScore.innerHTML = "Cookie clicked. Score: " + scoreNow.innerHTML.split(':')[1];
   console.log("Cookie clicked. Score: " + scoreNow.innerHTML.split(':')[1]);
 });
 
@@ -46,12 +47,14 @@ setInterval(function() {
 // Multiplier button start
 
 let scoreNow = document.getElementById("scoreShow");
+let totalScore = document.getElementById("totalScoreShow");
 scoreNow.innerHTML = "Score: 0";
 let multiplier = document.getElementById("bonusMultiplier");
 let multiplierCount = 0;
 let multiplierCost = 10;
 
 // Increase the multiplier and update the multiplier button text when the bonusMultiplier button is clicked
+multiplier.innerHTML = "Multiplier (Cost: " + multiplierCost + ")";
 multiplier.addEventListener("click", function() {
   if (parseInt(scoreNow.innerHTML.split(':')[1]) >= multiplierCost) {
     scoreNow.innerHTML = "Score: " + (parseInt(scoreNow.innerHTML.split(':')[1]) - multiplierCost);
@@ -59,6 +62,7 @@ multiplier.addEventListener("click", function() {
     multiplierCost = multiplierCost * 2;
     multiplier.innerHTML = "Multiplier x" + (multiplierCount + 1) + " (Cost: " + multiplierCost + ")";
     console.log("Multiplier x" + (multiplierCount + 1) + " purchased. Score: " + scoreNow.innerHTML.split(':')[1]);
+    totalScore.innerHTML = "Multiplier x" + (multiplierCount + 1) + " purchased. Score: " + scoreNow.innerHTML.split(':')[1]
   } else {
     // do nothing
   }
@@ -84,9 +88,8 @@ autoClicker.addEventListener("click", function() {
     autoClickerCost = autoClickerCost * 2;
     autoClicker.innerHTML = "Auto-Clicker x" + (autoClickerCount + 1) + " (Cost: " + autoClickerCost + ")";
     clearInterval(autoClickerInterval);
-    autoClickerInterval = setInterval(addAutoClick, 1000);
-  } else {
-    // do nothing
+    autoClickerInterval = setInterval(addAutoClick, 1000 / autoClickerCount);
+    totalScore.innerHTML = "Auto Clicker x" + (autoClickerCount + 1) + " purchased. Score: " + scoreNow.innerHTML.split(':')[1]
   }
 });
 
@@ -130,6 +133,7 @@ function activateBonus() {
       var countdown = setInterval(function() {
         bonusTimer--;
         bonus.innerHTML = "Bonus (Time remaining: " + bonusTimer + ")";
+        totalScore.innerHTML = "Bonus Activated - (Time remaining: " + bonusTimer + ")";
         if (bonusTimer == 0) {
           clearInterval(countdown);
           bonus.innerHTML = "Bonus (Cost: " + bonusCost + ")";
@@ -140,9 +144,24 @@ function activateBonus() {
       //do nothing
     }
   }
+
+
   
 
 // Boost button end;
+
+
+// Reset button start
+var resetButton = document.getElementById('reset');
+resetButton.addEventListener("click", function() {
+
+  var response = confirm("Are you sure you want to reset the game? Your progress will be lost.");
+  if (response) {
+    localStorage.removeItem("gameState");
+    window.location.reload();
+  }
+});
+// Reset button end
 
 // store the terminal commande inside an array and make them not displayed in the html 
 

@@ -8,17 +8,17 @@ body {
     background-color: #272727;
     overflow: hidden;
 }
-#scoreBox {
+/* #scoreBox {
     width: 22.6vw;
     height: 15vh;
 }
 #scoreShow {
     width: 22.6vw;
     height: 15vh;
-}
+} */
 #cookie {
-    width: 22.6vw;
-    height: 45vh;
+    /* width: 22.6vw; */
+    /* height: 45vh; */
     background-color: rgb(169, 169, 169);
     background-image: url(../images/return.png);
     background-position-x: 15%; 
@@ -26,9 +26,21 @@ body {
     background-size: 100px auto;
     background-repeat: no-repeat;
 }
+
+#reset {
+    /*  width: 22.6vw; */
+    /* height: 8vh; */
+    background-color: rgb(169, 169, 169);
+    background-image: url(../images/option.png);
+    background-position-x: left; 
+    background-position-y: center; 
+    background-size: auto 60px;
+    background-repeat: no-repeat;
+}
+
 #bonusMultiplier {
-    width: 22.6vw;
-    height: 8vh;
+    /* width: 22.6vw; */
+    /* height: 8vh; */
     background-color: rgb(169, 169, 169);
     background-image: url(../images/control.png);
     background-position-x: left; 
@@ -37,8 +49,8 @@ body {
     background-repeat: no-repeat;
 }
 #bonusAutoClick {
-    width: 22.6vw;
-    height: 8vh;
+    /*  width: 22.6vw; */
+    /* height: 8vh; */
     background-color: rgb(169, 169, 169);
     background-image: url(../images/option.png);
     background-position-x: left; 
@@ -47,8 +59,8 @@ body {
     background-repeat: no-repeat;
 }
 #bonusBoost {
-    width: 22.6vw;
-    height: 8vh;
+    /* width: 22.6vw; */
+    /* height: 8vh; */
     background-color: rgb(169, 169, 169);
     background-image: url(../images/command.png);
     background-position-x: 4%; 
@@ -87,18 +99,18 @@ body {
 }
 
 .fakeMenu {
-    width: 75vw;
+    /* width: 75vw; */
     box-sizing: border-box;
-    height: 35px;
+    /* height: 35px; */
     background-color: rgb(169, 169, 169);
 }
 
 .fakeScreen {
     background-color: #151515;
     box-sizing: border-box;
-    width: 75vw;
+    /* width: 75vw; */
     padding: 20px;
-    height: 85vh;
+    height: 70vh;
     overflow: auto;
     justify-content: start;
 }
@@ -262,3 +274,10 @@ span {
         width: 17em;
     }
 }
+
+@media screen and (max-width: 768px) {
+
+    .fakeScreen {
+        height: 47vh;
+    }
+  }
