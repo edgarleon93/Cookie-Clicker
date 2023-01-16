@@ -1,66 +1,26 @@
-# Swartz-7 TailwindCSS + Vite Template
+# BeCookies cookie-clicker
 
-This is a template to use for a `html` + `vanillajs` + `tailwindcss` project. Enjoy. Make it better.
+The [BeCookies](https://sanbimu.github.io/cookie-clicker) cookie-clicker is a game created by [Edgar Leon](https://github.com/edgarleon93), [Mike Incourt](https://github.com/vdemike) and Nathalie Appaerts. 
 
-<br/>
+## Description 
 
-<p align="center">
-  <a href="https://tailwindcss.com" target="_blank">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tailwindlabs/tailwindcss/HEAD/.github/logo-dark.svg">
-      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tailwindlabs/tailwindcss/HEAD/.github/logo-light.svg">
-      <img alt="Tailwind CSS" src="https://raw.githubusercontent.com/tailwindlabs/tailwindcss/HEAD/.github/logo-light.svg" width="350" height="70" style="max-width: 100%;">
-    </picture>
-  </a>
-</p>
+The goal of this project made for [BeCode](https://becode.org/) was to consolidate the `html`, `CSS` and `JavaScript` skills we have acquired in our web developer training so far. It was also a perfect opportunity to train our teamworking skills and practice working with `git`. 
 
-<br />
+We had 5 days to complete this cookie-clicker game with the following features: 
 
-## Documentation 📄
+- a creative twist on the classic cookie-clicker game with a nice and responsive design 
+- the rules of the game 
+- a button that increases the score everytime it's clicked
+- a way to display the players current score 
+- 3 bonusses (a multiplier, an autoclicker and a boost) 
+- a way to display which bonusses the player has purchased, the price of the bonus and its effect and/or duration
+- deactivate the bonus buttons when the player doesn't have enough clicks to buy them
+- a possibility to reset the game 
 
-Les principales libraries utilisées sont:
+## Where to find our game
 
-- [tailwindcss](https://tailwindcss.com/)
-- [Vite](https://vitejs.dev/)
-
-## Requis 🚨
-
-Il est obligatoire d'avoir [Node.js](https://nodejs.org/en/download/) version `>= 14.18.0` installé.
-
-_Optionnel: `nvm` (Node Version Manager) permet d'installer plusieurs versions de Node.js sur le même système._
-
-## Utilisation 👨‍💻
-
-### Initialisation 👶
-
-1. Créer un nouveau repo avec le bouton vert "**Use this template**" 👆.
-2. `git clone <votre-repo-url.git> <my-folder>`.
-3. `cd <my-folder>`.
-4. Installer les dépendances nécessaires avec `npm install`.
-
-### Développement 🏋️
-
-- `npm run dev` lance un serveur local de développement qui recharge automatiquement le front-end et les scripts.
-
-_Note: Cette [extension VSCode](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) permet de se faciliter la vie avec les classes de `tailwindcss`._
-
-### Production 👔
-
-- `npm run build` compile le projet dans le dossier `dist`.
-- `npm run serve` lance un serveur local du build de production.
-- `npm run pages` déploie le contenu du dossier `dist` sur GitHub Pages.
-
-## Contribute
-
-If you'd like to contribute to the improvement of this template, feel free to create a PR (Pull Request) from a new branch.
-
-## TODO
-
-- [ ] Prettier: Install, configure and add the [Tailwind plugin](https://tailwindcss.com/docs/editor-setup#automatic-class-sorting-with-prettier).
-- [ ] Add MIT License.
-- [ ] Configure template to use `typescript`.
-- [ ] Create executable to allow me to choose between using `yarn` or `npm`
+You can find it live here: https://sanbimu.github.io/cookie-clicker
 
 ---
 
-&copy; 2022
+&copy; 2023
