@@ -1,9 +1,13 @@
 import "./index.css";
+import commands from "./commands.json";
+
+console.log(commands);
 
 // Cookie clicker button 
 document.getElementById("cookie").addEventListener("click", function() {
-  scoreNow.innerHTML = "Score: " + (parseInt(scoreNow.innerHTML.split(':')[1]) + (1 * (multiplierCount + 1)));
+  scoreNow.innerHTML = "Score: " + (parseInt(scoreNow.innerHTML.split(':')[1]) + ((bonusActive ? 2 : 1) * (multiplierCount + 1)));
   //update line of codes to show in terminal per click
+  totalScore.innerHTML = "Cookie clicked. Score: " + scoreNow.innerHTML.split(':')[1];
   console.log("Cookie clicked. Score: " + scoreNow.innerHTML.split(':')[1]);
 });
 
@@ -43,12 +47,14 @@ setInterval(function() {
 // Multiplier button start
 
 let scoreNow = document.getElementById("scoreShow");
+let totalScore = document.getElementById("totalScoreShow");
 scoreNow.innerHTML = "Score: 0";
 let multiplier = document.getElementById("bonusMultiplier");
 let multiplierCount = 0;
 let multiplierCost = 10;
 
 // Increase the multiplier and update the multiplier button text when the bonusMultiplier button is clicked
+multiplier.innerHTML = "Multiplier (Cost: " + multiplierCost + ")";
 multiplier.addEventListener("click", function() {
   if (parseInt(scoreNow.innerHTML.split(':')[1]) >= multiplierCost) {
     scoreNow.innerHTML = "Score: " + (parseInt(scoreNow.innerHTML.split(':')[1]) - multiplierCost);
@@ -56,6 +62,7 @@ multiplier.addEventListener("click", function() {
     multiplierCost = multiplierCost * 2;
     multiplier.innerHTML = "Multiplier x" + (multiplierCount + 1) + " (Cost: " + multiplierCost + ")";
     console.log("Multiplier x" + (multiplierCount + 1) + " purchased. Score: " + scoreNow.innerHTML.split(':')[1]);
+    totalScore.innerHTML = "Multiplier x" + (multiplierCount + 1) + " purchased. Score: " + scoreNow.innerHTML.split(':')[1]
   } else {
     // do nothing
   }
@@ -81,14 +88,18 @@ autoClicker.addEventListener("click", function() {
     autoClickerCost = autoClickerCost * 2;
     autoClicker.innerHTML = "Auto-Clicker x" + (autoClickerCount + 1) + " (Cost: " + autoClickerCost + ")";
     clearInterval(autoClickerInterval);
-    autoClickerInterval = setInterval(addAutoClick, 1000);
-  } else {
-    // do nothing
+    autoClickerInterval = setInterval(addAutoClick, 1000 / autoClickerCount);
+    totalScore.innerHTML = "Auto Clicker x" + (autoClickerCount + 1) + " purchased. Score: " + scoreNow.innerHTML.split(':')[1]
   }
 });
 
 function addAutoClick() {
-  scoreNow.innerHTML = "Score: " + (parseInt(scoreNow.innerHTML.split(':')[1]) + (1 * (multiplierCount + 1)));
+  scoreNow.innerHTML = "Score: " + (parseInt(scoreNow.innerHTML.split(':')[1]) + ((bonusActive ? 2 : 1) *  autoClickerCount * (multiplierCount + 1)));
+
+  for (let i = 0; i < (autoClickerCount + multiplierCount) * (bonusActive ? 2 : 1) ; i++) {
+    showRandomElement();
+  }
+
 }
 
 // Autoclick button end 
@@ -122,6 +133,7 @@ function activateBonus() {
       var countdown = setInterval(function() {
         bonusTimer--;
         bonus.innerHTML = "Bonus (Time remaining: " + bonusTimer + ")";
+        totalScore.innerHTML = "Bonus Activated - (Time remaining: " + bonusTimer + ")";
         if (bonusTimer == 0) {
           clearInterval(countdown);
           bonus.innerHTML = "Bonus (Cost: " + bonusCost + ")";
@@ -132,13 +144,24 @@ function activateBonus() {
       //do nothing
     }
   }
-  
-  function addPointsWithBonus() {
-    scoreNow.innerHTML = "Score: " + (parseInt(scoreNow.innerHTML.split(':')[1]) + (1 * (multiplierCount + 1)) * 2);
-  };
+
+
   
 
 // Boost button end;
+
+
+// Reset button start
+var resetButton = document.getElementById('reset');
+resetButton.addEventListener("click", function() {
+
+  var response = confirm("Are you sure you want to reset the game? Your progress will be lost.");
+  if (response) {
+    localStorage.removeItem("gameState");
+    window.location.reload();
+  }
+});
+// Reset button end
 
 // store the terminal commande inside an array and make them not displayed in the html 
 
@@ -156,26 +179,52 @@ const container = document.getElementById("screen");
 
 
 function showRandomElement() {
-  // Remove all elements
-  console.log(randomCommandTextElements)
-  randomCommandTextElements.forEach(function(element) {
-    element.remove();
-  });
-  
-  // Select a random element
-  const randomIndex = Math.floor(Math.random() * randomCommandTextElements.length);
-  const randomElement = randomCommandTextElements[randomIndex];
+  const command = commands[Math.floor(Math.random()* commands.length)];
+  container.insertBefore(createCommandElement(command), container.children[container.children.length === 0 ? 0 : 1]);
 
-  // Create new element 
-  const newDiv = document.createElement("div");
-  newDiv.innerHTML = randomElement.innerHTML;
-  newDiv.classList.add("randomCommandText");
-  // Add the new element to the DOM
-  document.body.appendChild(newDiv);
-  container.appendChild(newDiv);
-
+  container.scrollTop = container.scrollHeight;
 }
 
 // Add an event listener to the button to call the showRandomElement function when clicked
-button.addEventListener("click", showRandomElement);
+button.addEventListener("click", () => {
+  for (let i = 0; i < (1 + multiplierCount) * (bonusActive ? 2 : 1) ; i++) {
+    showRandomElement();
+  }
+});
 
+const debug = false;
+let lineNum = 0;
+
+function createCommandElement(command) {
+  const container = document.createElement("div");
+  container.className = "randomCommandText";
+  
+  const lineContainer = document.createElement("p");
+  container.appendChild(lineContainer);
+
+  if (debug) {
+    const lineElement = document.createElement("span");
+    lineElement.className = `command-white`;
+    lineElement.appendChild(document.createTextNode(`${++lineNum} - `));
+    lineContainer.appendChild(lineElement);
+  }
+
+  for (const line of command) {
+    const lineElement = document.createElement("span");
+    lineElement.className = `command-${line.color}`;
+    lineElement.appendChild(document.createTextNode(line.text));
+
+    lineContainer.appendChild(lineElement);
+  }
+
+  return container;
+};
+
+(() => {
+  const command = [
+    {text: "$", color: "white"},
+    {text: "_", color: "white cursor"},
+  ];
+
+  container.insertBefore(createCommandElement(command), container.children[container.children.length === 0 ? 0 : 1]);
+})();

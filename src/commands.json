@@ -1,0 +1,175 @@
+[
+    [
+        {"color": "white", "text": "console"},
+        {"color": "white", "text": "."},
+        {"color": "red", "text": "log"},
+        {"color": "white", "text": "("},
+        {"color": "green", "text": "\"cookies\""},
+        {"color": "white", "text": ")"},
+        {"color": "white", "text": ";"}
+    ],
+    [
+        {"color": "white", "text": "console"},
+        {"color": "white", "text": "."},
+        {"color": "red", "text": "log"},
+        {"color": "white", "text": "("},
+        {"color": "green", "text": "\"yummy\""},
+        {"color": "white", "text": ")"},
+        {"color": "white", "text": ";"}
+    ],
+    [
+        {"color": "white", "text": "console"},
+        {"color": "white", "text": "."},
+        {"color": "red", "text": "log"},
+        {"color": "white", "text": "("},
+        {"color": "green", "text": "\"over cook\""},
+        {"color": "white", "text": ")"},
+        {"color": "white", "text": ";"}
+    ],
+    [
+        {"color": "white", "text": "console"},
+        {"color": "white", "text": "."},
+        {"color": "red", "text": "log"},
+        {"color": "white", "text": "("},
+        {"color": "green", "text": "\"under cook\""},
+        {"color": "white", "text": ")"},
+        {"color": "white", "text": ";"}
+    ],
+    [
+        {"color": "white", "text": "console"},
+        {"color": "white", "text": "."},
+        {"color": "red", "text": "log"},
+        {"color": "white", "text": "("},
+        {"color": "green", "text": "\"delicious\""},
+        {"color": "white", "text": ")"},
+        {"color": "white", "text": ";"}
+    ],
+    [
+        {"color": "blue", "text": "git "},
+        {"color": "white", "text": "add "},
+        {"color": "green", "text": "cookie"}
+    ],
+    [
+        {"color": "blue", "text": "git "},
+        {"color": "white", "text": "add "},
+        {"color": "green", "text": "chocolate"}
+    ],
+    [
+        {"color": "blue", "text": "git "},
+        {"color": "white", "text": "add "},
+        {"color": "green", "text": "butter"}
+    ],
+    [
+        {"color": "blue", "text": "git "},
+        {"color": "white", "text": "add "},
+        {"color": "green", "text": "suggar"}
+    ],
+    [
+        {"color": "blue", "text": "git "},
+        {"color": "white", "text": "add "},
+        {"color": "green", "text": "flour"}
+    ],
+    [
+        {"color": "blue", "text": "git "},
+        {"color": "white", "text": "commit "},
+        {"color": "white", "text": "-m "},
+        {"color": "white", "text": "\""},
+        {"color": "green", "text": "cookie"},
+        {"color": "white", "text": "\""}
+    ],
+    [
+        {"color": "blue", "text": "git "},
+        {"color": "white", "text": "commit "},
+        {"color": "white", "text": "-m "},
+        {"color": "white", "text": "\""},
+        {"color": "green", "text": "tasty"},
+        {"color": "white", "text": "\""}
+    ],
+    [
+        {"color": "blue", "text": "git "},
+        {"color": "white", "text": "commit "},
+        {"color": "white", "text": "-m "},
+        {"color": "white", "text": "\""},
+        {"color": "green", "text": "damn good"},
+        {"color": "white", "text": "\""}
+    ],
+    [
+        {"color": "blue", "text": "git "},
+        {"color": "white", "text": "commit "},
+        {"color": "white", "text": "-m "},
+        {"color": "white", "text": "\""},
+        {"color": "green", "text": "worth it"},
+        {"color": "white", "text": "\""}
+    ],
+    [
+        {"color": "blue", "text": "git "},
+        {"color": "white", "text": "checkout "},
+        {"color": "green", "text": "low fat"}
+    ],
+    [
+        {"color": "blue", "text": "git "},
+        {"color": "white", "text": "checkout "},
+        {"color": "green", "text": "worth it"}
+    ],
+    [
+        {"color": "blue", "text": "git "},
+        {"color": "white", "text": "checkout "},
+        {"color": "green", "text": "vegan"}
+    ],
+    [
+        {"color": "red", "text": "function "},
+        {"color": "blue", "text": "dough"},
+        {"color": "white", "text": "("},
+        {"color": "green", "text": "\"addSugar\""},
+        {"color": "white", "text": ")"},
+        {"color": "white", "text": ";"}
+    ],
+    [
+        {"color": "red", "text": "function "},
+        {"color": "blue", "text": "dough"},
+        {"color": "white", "text": "("},
+        {"color": "green", "text": "\"addFlour\""},
+        {"color": "white", "text": ")"},
+        {"color": "white", "text": ";"}
+    ],
+    [
+        {"color": "red", "text": "function "},
+        {"color": "blue", "text": "dough"},
+        {"color": "white", "text": "("},
+        {"color": "green", "text": "\"addEgg\""},
+        {"color": "white", "text": ")"},
+        {"color": "white", "text": ";"}
+    ],
+    [
+        {"color": "red", "text": "function "},
+        {"color": "blue", "text": "cookies"},
+        {"color": "white", "text": "("},
+        {"color": "green", "text": "\"yumyum\""},
+        {"color": "white", "text": ")"},
+        {"color": "white", "text": ";"}
+    ],
+    [
+        {"color": "red", "text": "function "},
+        {"color": "blue", "text": "add "},
+        {"color": "white", "text": "("},
+        {"color": "green", "text": "\"tasty\""},
+        {"color": "white", "text": ")"},
+        {"color": "white", "text": ";"}
+    ],
+    [
+        {"color": "red", "text": "function "},
+        {"color": "blue", "text": "chocolate"},
+        {"color": "white", "text": "("},
+        {"color": "green", "text": "\"chip\""},
+        {"color": "white", "text": ")"},
+        {"color": "white", "text": ";"}
+    ],
+    [
+        {"color": "red", "text": "function "},
+        {"color": "blue", "text": "oven"},
+        {"color": "white", "text": "("},
+        {"color": "green", "text": "\"bake\""},
+        {"color": "white", "text": ")"},
+        {"color": "white", "text": ";"}
+    ]
+]
