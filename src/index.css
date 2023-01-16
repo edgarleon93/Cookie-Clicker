@@ -7,17 +7,8 @@ body {
     background-color: #272727;
     overflow: hidden;
 }
-/* #scoreBox {
-    width: 22.6vw;
-    height: 15vh;
-}
-#scoreShow {
-    width: 22.6vw;
-    height: 15vh;
-} */
+
 #cookie {
-    /* width: 22.6vw; */
-    /* height: 45vh; */
     background-color: rgb(169, 169, 169);
     background-image: url(../images/return.png);
     background-position-x: 15%; 
@@ -27,8 +18,6 @@ body {
 }
 
 #bonusMultiplier {
-    /* width: 22.6vw; */
-    /* height: 8vh; */
     background-color: rgb(169, 169, 169);
     background-image: url(../images/control.png);
     background-position-x: left; 
@@ -41,8 +30,6 @@ body {
 }
 
 #bonusAutoClick {
-    /*  width: 22.6vw; */
-    /* height: 8vh; */
     background-color: rgb(169, 169, 169);
     background-image: url(../images/option.png);
     background-position-x: left; 
@@ -54,8 +41,6 @@ body {
     color:rgb(56, 56, 56);
 }
 #bonusBoost {
-    /* width: 22.6vw; */
-    /* height: 8vh; */
     background-color: rgb(169, 169, 169);
     background-image: url(../images/command.png);
     background-position-x: 4%; 
@@ -69,8 +54,6 @@ body {
 }
 
 #reset {
-    /*  width: 22.6vw; */
-    /* height: 8vh; */
     background-color: rgb(169, 169, 169);
     background-image: url(../images/back.png);
     background-position-x: left; 
@@ -153,20 +136,30 @@ span {
 
 .command-blue {
     color: #9CD9F0;
+    display: inline;
 }
 
 
 .command-green {
     color: #CDEE69;
+    display: inline;
 }
 
 
 .command-red {
     color: #E09690;
+    display: inline;
 }
 
 .command-white {
     color: #fff;
+    display: inline;
+}
+
+#backSVG {
+    height: 14px;
+    width: auto;
+    display: inline;
 }
 
 .cursor {

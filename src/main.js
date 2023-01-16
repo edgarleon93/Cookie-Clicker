@@ -2,6 +2,7 @@ import "./index.css";
 import commands from "./commands.json";
 
 console.log(commands);
+let buttonClicked = false;
 
 // Cookie clicker button 
 document.getElementById("cookie").addEventListener("click", function() {
@@ -9,6 +10,10 @@ document.getElementById("cookie").addEventListener("click", function() {
   //update line of codes to show in terminal per click
   totalScore.innerHTML = "Cookie clicked. Score: " + scoreNow.innerHTML.split(':')[1];
   console.log("Cookie clicked. Score: " + scoreNow.innerHTML.split(':')[1]);
+  if (!buttonClicked) {
+    gameRules.style.display = "none";
+    buttonClicked = true;
+  };
 });
 
 let multiplier = document.getElementById("bonusMultiplier");
