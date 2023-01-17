@@ -285,6 +285,21 @@ span {
     border-color: rgb(169,169,169);
 }
 
+
+@media screen and (min-width: 0px) and (max-width: 380px) { 
+    .fakeScreen {
+        height: 42vh;
+    }
+    #bonusMultiplier, #bonusAutoClick, #bonusBoost, #reset {
+        height: 110px;
+        background-position-x: center; 
+        background-position-y: center; 
+    }
+    #bonusMultiplierText, #bonusAutoClickText, #bonusBoostText, #resetText {
+        display: none;
+    }
+  }
+
 @media screen and (min-width: 380px) and (max-width: 768px) { 
     .fakeScreen {
         height: 47vh;
