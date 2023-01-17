@@ -279,35 +279,7 @@ span {
     to {
         width: 17em;
     }
-}
-
- /* @media screen and (max-width: 375px) { 
-    .Fakescreenfull {
-        height: 45vh;
-    }
-    #scoreBox, #totalScore {
-        height: 80%;
-        margin-top: 1px;
-        margin-bottom: 0px;
-        padding-top: 9px;
-        padding-bottom: 20px;
-    }
-    .topBoxes {
-        gap: 0;
-    }
-
-    #cookie {
-        height: 110px;
-    }
-    #bonusMultiplier, #bonusAutoClick, #bonusBoost, #reset {
-        height: 80px;
-        background-position-x: center; 
-        background-position-y: center; 
-    }
-    #bonusMultiplierText, #bonusAutoClickText, #bonusBoostText, #resetText {
-        display: none;
-    }
-} */   
+} 
 
 @media screen and (min-width: 380px) and (max-width: 768px) { 
     .fakeScreen {
