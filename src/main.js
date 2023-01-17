@@ -8,7 +8,6 @@ let buttonClicked = false;
 document.getElementById("cookie").addEventListener("click", function() {
   scoreNow.innerHTML = "Score: " + (parseInt(scoreNow.innerHTML.split(':')[1]) + ((bonusActive ? 2 : 1) * (multiplierCount + 1)));
   //update line of codes to show in terminal per click
-  totalScore.innerHTML = "Cookie clicked. Score: " + scoreNow.innerHTML.split(':')[1];
   console.log("Cookie clicked. Score: " + scoreNow.innerHTML.split(':')[1]);
   if (!buttonClicked) {
     gameRules.remove();
@@ -72,7 +71,7 @@ multiplier.addEventListener("click", function() {
     multiplierCost = multiplierCost * 2;
     multiplierText.innerHTML = "Multiplier x" + (multiplierCount + 1) + " [Cost: " + multiplierCost + "]";
     console.log("Multiplier x" + (multiplierCount + 1) + " purchased. Score: " + scoreNow.innerHTML.split(':')[1]);
-    totalScore.innerHTML = "Multiplier x" + (multiplierCount + 1) + " purchased. Score: " + scoreNow.innerHTML.split(':')[1]
+    totalScore.innerHTML = "Multiplier x" + (multiplierCount + 1) + " purchased."
   } else {
     // do nothing
   }
@@ -98,7 +97,7 @@ autoClicker.addEventListener("click", function() {
     autoClickerText.innerHTML = "Auto-Clicker x" + (autoClickerCount + 1) + " [Cost: " + autoClickerCost + "]";
     clearInterval(autoClickerInterval);
     autoClickerInterval = setInterval(addAutoClick, 1000 / autoClickerCount);
-    totalScore.innerHTML = "Auto Clicker x" + (autoClickerCount + 1) + " purchased. Score: " + scoreNow.innerHTML.split(':')[1]
+    totalScore.innerHTML = "Auto Clicker x" + (autoClickerCount + 1) + " purchased. "
   }
 });
 
