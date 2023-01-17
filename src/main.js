@@ -2,6 +2,7 @@ import "./index.css";
 import commands from "./commands.json";
 
 console.log(commands);
+let buttonClicked = false;
 
 // Cookie clicker button 
 document.getElementById("cookie").addEventListener("click", function() {
@@ -9,58 +10,67 @@ document.getElementById("cookie").addEventListener("click", function() {
   //update line of codes to show in terminal per click
   totalScore.innerHTML = "Cookie clicked. Score: " + scoreNow.innerHTML.split(':')[1];
   console.log("Cookie clicked. Score: " + scoreNow.innerHTML.split(':')[1]);
+  if (!buttonClicked) {
+    gameRules.style.display = "none";
+    buttonClicked = true;
+  };
 });
+
+let multiplier = document.getElementById("bonusMultiplier");
+let autoClicker = document.getElementById("bonusAutoClick");
+let bonus = document.getElementById("bonusBoost");
+let refreshRate = 10;
 
 setInterval(function() {
   if (parseInt(scoreNow.innerHTML.split(':')[1]) < multiplierCost){
   multiplier.disabled = true;
-  multiplier.style.borderColor = "black";
+  multiplier.style.opacity = "0.5";
   }
   else {
   multiplier.disabled = false;
-  multiplier.style.borderColor = "white";
+  multiplier.style.opacity = "1";
   }  
-}, 1);
+}, refreshRate);
 
 setInterval(function() {
   if (parseInt(scoreNow.innerHTML.split(':')[1]) < autoClickerCost){
     autoClicker.disabled = true;
-    autoClicker.style.borderColor = "black";
+    autoClicker.style.opacity = "0.5";
   }
   else {
     autoClicker.disabled = false;
-    autoClicker.style.borderColor = "white";
+    autoClicker.style.opacity = "1";
   }  
-}, 1);
+}, refreshRate);
 
 setInterval(function() {
   if (parseInt(scoreNow.innerHTML.split(':')[1]) < bonusCost){
     bonus.disabled = true;
-    bonus.style.borderColor = "black";
+    bonus.style.opacity = "0.5";
   }
   else {
     bonus.disabled = false;
-    bonus.style.borderColor = "white";
+    bonus.style.opacity = "1";
   }  
-}, 1);
+}, refreshRate);
 
 // Multiplier button start
 
 let scoreNow = document.getElementById("scoreShow");
 let totalScore = document.getElementById("totalScoreShow");
 scoreNow.innerHTML = "Score: 0";
-let multiplier = document.getElementById("bonusMultiplier");
+let multiplierText = document.getElementById("bonusMultiplierText");
 let multiplierCount = 0;
 let multiplierCost = 10;
 
 // Increase the multiplier and update the multiplier button text when the bonusMultiplier button is clicked
-multiplier.innerHTML = "Multiplier (Cost: " + multiplierCost + ")";
+multiplierText.innerHTML = "Multiplier [Cost: " + multiplierCost + "]";
 multiplier.addEventListener("click", function() {
   if (parseInt(scoreNow.innerHTML.split(':')[1]) >= multiplierCost) {
     scoreNow.innerHTML = "Score: " + (parseInt(scoreNow.innerHTML.split(':')[1]) - multiplierCost);
     multiplierCount++;
     multiplierCost = multiplierCost * 2;
-    multiplier.innerHTML = "Multiplier x" + (multiplierCount + 1) + " (Cost: " + multiplierCost + ")";
+    multiplierText.innerHTML = "Multiplier x" + (multiplierCount + 1) + " [Cost: " + multiplierCost + "]";
     console.log("Multiplier x" + (multiplierCount + 1) + " purchased. Score: " + scoreNow.innerHTML.split(':')[1]);
     totalScore.innerHTML = "Multiplier x" + (multiplierCount + 1) + " purchased. Score: " + scoreNow.innerHTML.split(':')[1]
   } else {
@@ -73,20 +83,19 @@ multiplier.addEventListener("click", function() {
 
 // Autoclick button start 
 
-
-let autoClicker = document.getElementById("bonusAutoClick");
+let autoClickerText = document.getElementById("bonusAutoClickText");
 let autoClickerCount = 0;
-let autoClickerCost = 11;
+let autoClickerCost = 30;
 let autoClickerInterval = null;
 
 // Set up auto-clicker button
-autoClicker.innerHTML = "Auto-Clicker (Cost: " + autoClickerCost + ")";
+autoClickerText.innerHTML = "Auto-Clicker [Cost: " + autoClickerCost + "]";
 autoClicker.addEventListener("click", function() {
   if (parseInt(scoreNow.innerHTML.split(':')[1]) >= autoClickerCost) {
     scoreNow.innerHTML = "Score: " + (parseInt(scoreNow.innerHTML.split(':')[1]) - autoClickerCost);
     autoClickerCount++;
     autoClickerCost = autoClickerCost * 2;
-    autoClicker.innerHTML = "Auto-Clicker x" + (autoClickerCount + 1) + " (Cost: " + autoClickerCost + ")";
+    autoClickerText.innerHTML = "Auto-Clicker x" + (autoClickerCount + 1) + " [Cost: " + autoClickerCost + "]";
     clearInterval(autoClickerInterval);
     autoClickerInterval = setInterval(addAutoClick, 1000 / autoClickerCount);
     totalScore.innerHTML = "Auto Clicker x" + (autoClickerCount + 1) + " purchased. Score: " + scoreNow.innerHTML.split(':')[1]
@@ -105,38 +114,39 @@ function addAutoClick() {
 // Autoclick button end 
 
 // Bonus boost button start 
-let bonus = document.getElementById("bonusBoost");
+
+let bonusText = document.getElementById("bonusBoostText");
 let bonusCount = 0;
-let bonusCost = 12;
+let bonusCost = 20;
 let bonusTimer = null;
 let bonusActive = false;
 
-bonus.innerHTML = "Bonus (Cost: " + bonusCost + ")";
+bonusText.innerHTML = "Boost [Cost: " + bonusCost + "]";
 bonus.addEventListener("click", function() {
   if (parseInt(scoreNow.innerHTML.split(':')[1]) >= bonusCost) {
     scoreNow.innerHTML = "Score: " + (parseInt(scoreNow.innerHTML.split(':')[1]) - bonusCost);
     bonusCount++;
     bonusCost = bonusCost * 2;
-    bonus.innerHTML = "Bonus x" + (bonusCount + 1) + " (Cost: " + bonusCost + ")";
+    bonusText.innerHTML = "Boost x" + (bonusCount + 1) + " [Cost: " + bonusCost + "]";
     activateBonus();
   } else {
     // do nothing
   }
 });
 
-// Add bonus function
+// Add boost function
 function activateBonus() {
     if (!bonusActive) {
       bonusActive = true;
       bonusTimer = 30;
-      bonus.innerHTML = "Bonus (Time remaining: " + bonusTimer + ")";
+      bonus.innerHTML = "Boost (Time remaining: " + bonusTimer + ")";
       var countdown = setInterval(function() {
         bonusTimer--;
-        bonus.innerHTML = "Bonus (Time remaining: " + bonusTimer + ")";
-        totalScore.innerHTML = "Bonus Activated - (Time remaining: " + bonusTimer + ")";
+        bonus.innerHTML = "Boost (Time remaining: " + bonusTimer + ")";
+        totalScore.innerHTML = "Boost Activated - (Time remaining: " + bonusTimer + ")";
         if (bonusTimer == 0) {
           clearInterval(countdown);
-          bonus.innerHTML = "Bonus (Cost: " + bonusCost + ")";
+          bonus.innerHTML = "Boost (Cost: " + bonusCost + ")";
           bonusActive = false;
           }
       }, 1000);
@@ -145,11 +155,7 @@ function activateBonus() {
     }
   }
 
-
-  
-
 // Boost button end;
-
 
 // Reset button start
 var resetButton = document.getElementById('reset');

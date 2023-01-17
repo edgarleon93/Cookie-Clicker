@@ -3,70 +3,66 @@
 @tailwind utilities;
 
 
-
 body {
     background-color: #272727;
     overflow: hidden;
 }
-/* #scoreBox {
-    width: 22.6vw;
-    height: 15vh;
-}
-#scoreShow {
-    width: 22.6vw;
-    height: 15vh;
-} */
+
 #cookie {
-    /* width: 22.6vw; */
-    /* height: 45vh; */
     background-color: rgb(169, 169, 169);
     background-image: url(../images/return.png);
     background-position-x: 15%; 
-    background-position-y: 15%; 
+    background-position-y: 35%; 
     background-size: 100px auto;
     background-repeat: no-repeat;
 }
 
-#reset {
-    /*  width: 22.6vw; */
-    /* height: 8vh; */
-    background-color: rgb(169, 169, 169);
-    background-image: url(../images/option.png);
-    background-position-x: left; 
-    background-position-y: center; 
-    background-size: auto 60px;
-    background-repeat: no-repeat;
-}
-
 #bonusMultiplier {
-    /* width: 22.6vw; */
-    /* height: 8vh; */
     background-color: rgb(169, 169, 169);
     background-image: url(../images/control.png);
     background-position-x: left; 
     background-position-y: center; 
     background-size: auto 60px;
     background-repeat: no-repeat;
+    font-size: 1.15em;
+    font-family: monospace;
+    color:rgb(56, 56, 56);
 }
+
 #bonusAutoClick {
-    /*  width: 22.6vw; */
-    /* height: 8vh; */
     background-color: rgb(169, 169, 169);
     background-image: url(../images/option.png);
     background-position-x: left; 
     background-position-y: center; 
     background-size: auto 60px;
     background-repeat: no-repeat;
+    font-size: 1.15em;
+    font-family: monospace;
+    color:rgb(56, 56, 56);
 }
 #bonusBoost {
-    /* width: 22.6vw; */
-    /* height: 8vh; */
     background-color: rgb(169, 169, 169);
     background-image: url(../images/command.png);
     background-position-x: 4%; 
     background-position-y: center; 
     background-size: auto 40px;
     background-repeat: no-repeat;
+    font-size: 1.15em;
+    font-family: monospace;
+    color:rgb(56, 56, 56);
+
+}
+
+#reset {
+    background-color: rgb(169, 169, 169);
+    background-image: url(../images/back.png);
+    background-position-x: left; 
+    background-position-y: center; 
+    background-size: auto 80px;
+    background-repeat: no-repeat;
+    font-size: 1.15em;
+    font-family: monospace;
+    color:rgb(56, 56, 56);
 }
 
 .container {
@@ -140,20 +136,30 @@ span {
 
 .command-blue {
     color: #9CD9F0;
+    display: inline;
 }
 
 
 .command-green {
     color: #CDEE69;
+    display: inline;
 }
 
 
 .command-red {
     color: #E09690;
+    display: inline;
 }
 
 .command-white {
     color: #fff;
+    display: inline;
+}
+
+#backSVG {
+    height: 14px;
+    width: auto;
+    display: inline;
 }
 
 .cursor {
@@ -275,9 +281,57 @@ span {
     }
 }
 
-@media screen and (max-width: 768px) {
+ /* @media screen and (max-width: 375px) { 
+    .Fakescreenfull {
+        height: 45vh;
+    }
+    #scoreBox, #totalScore {
+        height: 80%;
+        margin-top: 1px;
+        margin-bottom: 0px;
+        padding-top: 9px;
+        padding-bottom: 20px;
+    }
+    .topBoxes {
+        gap: 0;
+    }
 
+    #cookie {
+        height: 110px;
+    }
+    #bonusMultiplier, #bonusAutoClick, #bonusBoost, #reset {
+        height: 80px;
+        background-position-x: center; 
+        background-position-y: center; 
+    }
+    #bonusMultiplierText, #bonusAutoClickText, #bonusBoostText, #resetText {
+        display: none;
+    }
+} */   
+
+@media screen and (min-width: 380px) and (max-width: 768px) { 
     .fakeScreen {
         height: 47vh;
+    }
+    #bonusMultiplier, #bonusAutoClick, #bonusBoost, #reset {
+        height: 110px;
+        background-position-x: center; 
+        background-position-y: center; 
+    }
+    #bonusMultiplierText, #bonusAutoClickText, #bonusBoostText, #resetText {
+        display: none;
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 900px) { 
+    .fakeScreen {
+        height: 60vh;
+    }
+    #bonusMultiplier, #bonusAutoClick, #bonusBoost, #reset {
+        background-position-x: center; 
+        background-position-y: center; 
+    }
+    #bonusMultiplierText, #bonusAutoClickText, #bonusBoostText, #resetText {
+        display: none;
     }
   }

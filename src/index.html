@@ -5,13 +5,13 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tailwind Template</title>
+  <title>BeCookies</title>
+  <link rel="icon" href="terminal_icon.png" type="image/png"/>
 </head>
 
 <body>
 
   <!-- Score and history -->
-
 
 <section class="grid p-3 grid-cols-12 gap-2">
 <div class="history hidden  md:grid lg:grid lg:col-span-9 md:col-span-9 col-span-12">
@@ -32,7 +32,25 @@
         <div class="fakeButtons fakeZoom"></div>
       </div>
       <div class="fakeScreen">
-        <section class="flex flex-col-reverse h-full overflow-hiddenx" id="screen">
+        <section class="flex flex-col-reverse h-full overflow-hidden" id="screen">
+          <div id="gameRules" class="text-white font-mono font-bold" >
+            Welcome to our<div class="command-blue"> cookie-clicker</div> game: 
+           <br>
+           <br>
+           Click on the <div class="command-green">⏎ button</div> to score points
+           <br> /
+           Once your score is high enough you can <div class="command-red">activate</div> the following bonusses:
+           <br>
+           <div class="command-green">Multiplier ^</div> { will permanently multiply the number of points <div class="command-blue">per click</div> };
+           <br>
+           <div class="command-green">Auto-Clicker ⌥</div> { will automatically add a click to your score <div class="command-blue">every second</div> };
+           <br>
+           <div class="command-green">Boost ⌘</div> : { boosts your score of <div class="command-blue">200% per click</div> for <div class="command-red">30 seconds</div> };
+           <br>
+           > The cost and the reward of each bonus <div class="command-red">increase </div> every time you buy them
+           <br>
+           Reset game <img id= "backSVG" src="backwhite.png"> : <div class="command-green">start over </div>
+          </div>
         </section>
       </div>
     </section>
@@ -41,16 +59,20 @@
 
 
     <div class="grid grid-cols-12 grid-rows-6 col-span-12 lg:col-span-3 lg:grid-flow-row lg:mt-0 md:col-span-3 md:grid-flow-row md:mt-0">
-      <button id="cookie" class="col-span-12 md:row-span-2 lg:row-span-2 text-black font-semibold text-right hover:text-white py-2 border-8 border-black shadow hover:border-transparent"></button>
-      <button id="bonusMultiplier" class="col-span-3 md:col-span-12 lg:col-span-12  text-black font-semibold text-right hover:text-white py-2 px-3 border-8 border-black shadow hover:border-transparent"></button>
-      <button id="bonusAutoClick" class="col-span-3 md:col-span-12 lg:col-span-12  text-black font-semibold text-right hover:text-white py-2 px-3 border-8 border-black shadow hover:border-transparent"></button>
-      <button id="bonusBoost" class="col-span-3 md:col-span-12 lg:col-span-12 text-black font-semibold text-right hover:text-white py-2 px-3 border-8 border-black shadow hover:border-transparent"></button>
-      <button id="reset" class="col-span-3 md:col-span-12 lg:col-span-12 text-black font-semibold text-right hover:text-white py-2 px-3 border-8 border-black shadow hover:border-transparent">Reset</button>
+      <button id="cookie" class="col-span-12 md:row-span-2 lg:row-span-2 font-semibold text-right py-2 border-8 border-black hover:border-white"></button>
+      <button id="bonusMultiplier" class="col-span-3 md:col-span-12 lg:col-span-12 font-semibold text-right py-2 px-3 border-8 border-black hover:border-white">
+        <div id="bonusMultiplierText" class="relative transition transform duration-100 hover:translate-y-1"></div></button>
+      <button id="bonusAutoClick" class="col-span-3 md:col-span-12 lg:col-span-12  font-semibold text-right py-2 px-3 border-8 border-black hover:border-white">
+        <div id="bonusAutoClickText" class="relative transition transform duration-100 hover:translate-y-1"></div></button>
+      <button id="bonusBoost" class="col-span-3 md:col-span-12 lg:col-span-12 font-semibold text-right py-2 px-3 border-8 border-black hover:border-white">
+        <div id="bonusBoostText" class="relative transition transform duration-100 hover:translate-y-1"></div></button>
+      <button id="reset" class="relative col-span-3 md:col-span-12 lg:col-span-12 font-semibold text-right py-2 px-3 border-8 border-black hover:border-white">
+        <div id= "resetText" class="relative transition transform duration-100 hover:translate-y-1"> Reset game </div></button>
     </div>
 
   <div class="col-span-12">
       <div class="border-8 py-2 pt-2 shadow justify-items-center">
-        <p class="block text-center text-white">BeCookies - Copyrights reserved - 2023</p></div>
+        <p class="block text-center text-white"><a href="https://github.com/sanbimu/cookie-clicker" class= "underline">BeCookies</a> - Copyrights reserved - 2023</p></div>
   </div>
 
     </section>
