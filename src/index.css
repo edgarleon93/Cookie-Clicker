@@ -281,6 +281,10 @@ span {
     }
 } 
 
+.border-8.py-2.pt-2.shadow.justify-items-center {
+    border-color: rgb(169,169,169);
+}
+
 @media screen and (min-width: 380px) and (max-width: 768px) { 
     .fakeScreen {
         height: 47vh;
