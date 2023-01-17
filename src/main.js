@@ -11,7 +11,7 @@ document.getElementById("cookie").addEventListener("click", function() {
   totalScore.innerHTML = "Cookie clicked. Score: " + scoreNow.innerHTML.split(':')[1];
   console.log("Cookie clicked. Score: " + scoreNow.innerHTML.split(':')[1]);
   if (!buttonClicked) {
-    gameRules.style.display = "none";
+    gameRules.remove();
     buttonClicked = true;
   };
 });
