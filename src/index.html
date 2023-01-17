@@ -12,9 +12,9 @@
 <body>
 
   <!-- Score and history -->
-<section class=" grid p-3 grid-cols-12 gap-2">
 
-<div class="history lg:col-span-9 md:col-span-9 col-span-12">
+<section class="grid p-3 grid-cols-12 gap-2">
+<div class="history hidden  md:grid lg:grid lg:col-span-9 md:col-span-9 col-span-12">
     <div id="totalScore" class="counter border-8 py-4 border-black shadow justify-items-center ">
       <p id="totalScoreShow" class="counter block text-center text-white">Enjoy the Game!</p></div>
 </div>
@@ -32,7 +32,7 @@
         <div class="fakeButtons fakeZoom"></div>
       </div>
       <div class="fakeScreen">
-        <section id="screen" class="overflow-hidden" >
+        <section class="flex flex-col-reverse h-full overflow-hidden" id="screen">
           <div id="gameRules" class="text-white font-mono font-bold" >
             Welcome to our<div class="command-blue"> cookie-clicker</div> game: 
            <br>
