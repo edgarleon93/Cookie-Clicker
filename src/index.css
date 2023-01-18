@@ -125,6 +125,10 @@ p {
 span {
     color: #fff;
     font-weight: bold;
+} 
+
+#cookie:active {
+    border: none;
 }
 
 .randomCommandText {
@@ -289,6 +293,7 @@ span {
 @media screen and (min-width: 0px) and (max-width: 380px) { 
     .fakeScreen {
         height: 42vh;
+        font-size: xx-small;
     }
     #bonusMultiplier, #bonusAutoClick, #bonusBoost, #reset {
         height: 110px;
@@ -303,6 +308,7 @@ span {
 @media screen and (min-width: 380px) and (max-width: 768px) { 
     .fakeScreen {
         height: 47vh;
+        font-size: smaller;
     }
     #bonusMultiplier, #bonusAutoClick, #bonusBoost, #reset {
         height: 110px;
