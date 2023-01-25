@@ -6,7 +6,7 @@
 
 ## Where to find the game
 
-You can find it live here: https://sanbimu.github.io/cookie-clicker
+You can find it live here: https://edgarleon93.github.io/Cookie-Clicker/
 
 ## Technologies Used
 
