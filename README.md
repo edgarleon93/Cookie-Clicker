@@ -1,6 +1,6 @@
 # BeCookies cookie-clicker
 
-[BeCookies](https://sanbimu.github.io/cookie-clicker) is a terminal-themed cookie clicker game:
+[BeCookies](https://edgarleon93.github.io/Cookie-Clicker/) is a terminal-themed cookie clicker game:
 
 ![BeCookies](/images/Screenshot.png)
 
